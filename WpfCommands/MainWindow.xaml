@@ -1,0 +1,23 @@
+﻿<Window x:Class="WpfCommands.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:WpfCommands"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.DataContext>
+        <local:MainViewModel x:Name="myviewModel" />
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Button Grid.Column="0" Grid.Row ="0" Width="160" Height="30" Content="Simple Command" Command="{Binding SimpleCommand}" CommandParameter="{Binding Messages}"/>
+        <DataGrid Name="dgMessages" Grid.Column="0" Grid.Row ="1"
+                  ItemsSource="{Binding Path=Messages}" AutoGenerateColumns="True">
+            
+        </DataGrid>
+    </Grid>
+</Window>
